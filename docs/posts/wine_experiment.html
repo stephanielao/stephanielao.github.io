@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Stephanie Lao">
+<meta name="dcterms.date" content="2024-12-13">
+
+<title>Stephanie J. Lao - Wine Tasting Analysis Using Full Factorial Design</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WLVLPRJF12"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLVLPRJF12', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Stephanie J. Lao</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html" rel="" target="">
+ <span class="menu-text">Papers</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../portfolio.html" rel="" target="">
+ <span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../skills.html" rel="" target="">
+ <span class="menu-text">Skills</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#supplementary-figures" id="toc-supplementary-figures" class="nav-link" data-scroll-target="#supplementary-figures">Supplementary Figures</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Wine Tasting Analysis Using Full Factorial Design</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">experimental design</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stephanie Lao </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This project was done in collaboration with Stephanie Lu that illustrates a full factorial design including data collection and analysis.</p>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>Humans began drinking alcohol over 10,000 years ago. Today, wine is the second most consumed alcoholic beverage around the world, second only to beer, with a global market size of over $450 billion. The different types of wine are vast, creating a disparity in price and quality. In addition to the wine-making process itself, serving conditions are pivotal to wine enjoyment. Preferences are often shaped by cultural norms, such as whites before reds and typical serving temperatures. Furthermore, consumer perception of value plays a role in satisfaction. Insights could inform wine serving strategies, marketing, and product development. This study hopes to investigate traditional serving norms and explore how factors that contribute to overall taste intersect.</p>
+<p>The objective of this experiment is to investigate how three factors - type of wine (red versus white), price (expensive versus cheap), and temperature (chilled versus room temperature) - impact taster satisfaction. Taster satisfaction is assessed using seven blocks using seven different taste testers (T1–T7), each providing a satisfaction score ranging from 1 (“awful”) to 3 (“amazing”).</p>
+<p>Specifically, the study’s objectives are to determine if the three individual factors significantly influence taster satisfaction, evaluate potential interactions between these factors (e.g., does the effect of temperature differ for red vs.&nbsp;white wine?), identify which factor or combination of factors most strongly contributes to overall satisfaction ratings, and provide insights into consumer preferences based on sensory evaluations with potential implications for serving and marketing wine.</p>
+</section>
+<section id="methods" class="level3">
+<h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<section id="experimental-design" class="level4">
+<h4 class="anchored" data-anchor-id="experimental-design">Experimental Design</h4>
+<p>We employed a full factorial design to investigate the effects of three factors, each with two levels, on taster satisfaction:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_table1.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>This design involves testing all possible combinations of these factors and their levels, resulting in <span class="math inline">\(2^3 = 8\)</span> unique experimental runs.</p>
+<p>The experiment included the following design features:</p>
+<ul>
+<li><p>Blocking: Seven tasters are treated as seven blocks because each taster’s unique preferences, palate sensitivity, and potential biases introduce a potentially large source of variation of satisfaction ratings. Treating the tasters as blocks deals with this nuisance factor that is not of particular interest in this study. Each of the eight wine samples are applied to each block (i.e., all seven tasters scored all eight wine samples).</p></li>
+<li><p>Randomization: The order of the eight experimental runs is randomized to minimize potential order effects and biases. R’s <code>sample</code> function is utilized to randomly select the order of wine samples to be served.</p></li>
+</ul>
+</section>
+<section id="data-collection-procedure" class="level4">
+<h4 class="anchored" data-anchor-id="data-collection-procedure">Data Collection Procedure</h4>
+<p>Seven tasters participated in total, with each taster providing a satisfaction score for each of the eight samples. All tasters were blinded to the identity and attributes of the wines they evaluated to ensure that their ratings were based solely on sensory experience, thereby minimizing external influence. During each sampling, blindfolded tasters sampled the wine simultaneously in silence and indicated their satisfaction by holding up a number between 1 and 3, where 1 represented “awful”, 2 represented “neutral”, and 3 represented “amazing”. This process was designed to capture immediate satisfaction responses without being influenced by others’ scores.</p>
+<p>The table below illustrates the design matrix for our wine tasting experiment, including raw wine satisfaction scores from all seven tasters.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_table2.png" class="img-fluid" style="width:60.0%"></p>
+</div>
+</div>
+</section>
+<section id="statistical-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h4>
+<p>Data pre-processing and statistical analysis were conducted in <code>R</code>. Factor levels of “-” and “+” as shown in design matrix were coded as “-1” and “1”, respectively. For analysis, the <code>lm</code> function was called (satisfaction scores as a function of A, B, C (including two- and three-factor interactions), and the block effect) to assess the significance of each term. Factorial effects were subsequently computed by multiplying the regression estimates by 2. Residual analysis was performed to ensure model assumptions were appropriately met.</p>
+</section>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<section id="exploratory-data-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h4>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_eda_type.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_eda_price.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_eda_temp.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>The figures above show boxplots of type, price, and temperature, respectively, by taster satisfaction. The boxplot of type compares white wine and red wine, showing the distribution of red wine satisfaction scores are skewed towards higher scores compared to white wines. The boxplot of price compares cheap wines and expensive wines, illustrating cheap wines have a wider spread of scores. The boxplot of serving temperature compares chilled samples and room-temperature samples, illustrating the wider spread of scores for room temperature samples. All three boxplots show that the levels for each of the three factors have the same median satisfaction scores and give some basic information about possible outliers, which will be explored in further analysis.</p>
+<p>The figure below is a heatmap that illustrates cheap wines achieved higher average satisfaction scores when chilled and expensive wines achieved higher average satisfaction scores when room temperature. Furthermore, chilled expensive white wines received the lowest satisfaction scores, which challenges anecdotal evidence of this being a popular choice among wine drinkers.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_heatmap.png" class="img-fluid" style="width:80.0%"></p>
+</div>
+</div>
+</section>
+<section id="significant-effects" class="level4">
+<h4 class="anchored" data-anchor-id="significant-effects">Significant Effects</h4>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_table3.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>The above table summarizes the initial model output that includes all possible variables. The only significant term is <span class="math inline">\(BC\)</span>, or the two-factor interaction of price and temperature, with a p-value of 0.018. Note that no main effects or other interaction effects are significant. Moreover, the block effect was not significant, signifying there was no significant difference in the mean responses from the testers. This suggests that block-specific factors (e.g., personal preference and taste differences) did not influence the wine satisfaction scores.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_pricetemp.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>The figure above shows the interaction plots of price (<span class="math inline">\(B\)</span>) and temperature (<span class="math inline">\(C\)</span>), with the positions of the factors swapped in each plot to illustrate there are no major discrepancies that would need to be further investigated. For cheap wines, higher mean satisfaction scores were achieved when served chilled. On the other hand, expensive wines were scored higher on average when served at room temperature.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_halfnormal.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>The half-normal plot shown above visualizes absolute factorial effects. As shown by our previous analysis, the interaction effect of <span class="math inline">\(BC\)</span>, or price and temperature, is shown to be significant.</p>
+</section>
+<section id="residual-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="residual-analysis">Residual Analysis</h4>
+<p>Residual analysis was conducted to ensure model assumptions were appropriately met. A residuals versus fitted plot is shown below. The major concerns revealed here are the presence of three outliers. However, due to the nature of our experiment and data collection, no data points are removed. The Q-Q residuals plot below shows that the assumption of normality is reasonable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_resfitted.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="img/wine_proj/wine_qq.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+<p>Note that a log and square root transformation were applied to the response variable, with no major changes in the model or results. Therefore, the response variable was kept as is for purposes of easier model interpretation.</p>
+</section>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<p>While the results provide valuable insights, there are several factors and limitations worth considering. In traditional wine-tasting settings, white wines are typically tasted before red wines to prevent the heavier flavors of reds from influencing perceptions of whites. However, in this study, the randomized presentation of wine types led to deviations from standard tasting practices. While this randomization was necessary to reduce order effects, it may have inadvertently affected satisfaction scores, particularly for participants familiar with or sensitive to traditional tasting protocols.</p>
+<p>Additionally, the typical serving temperatures of wines — whites chilled and reds at room temperature — align with the factor levels tested in this experiment. This alignment may reinforce pre-existing preferences, as tasters might be accustomed to these serving norms.</p>
+<p>The price factor aimed to examine whether the expense of a wine impacts satisfaction. While the “expensive” wine used in the study was nearly three times the cost of the “cheap” wine, it may not meet the expectations of truly high-end wines. As a result, the findings may be less distinct than if we had utilized the true extremes of the wine market.</p>
+<p>Although tasters were treated as blocks to control for individual differences, the relatively small number of participants limits the generalizability of the results. Increasing the number of tasters and trials could enhance the robustness of the findings. Future experiments could also include tasters with varying levels of wine expertise to explore how familiarity impacts satisfaction. Moreover, follow-up experiments can randomize the order of wines within each individual block.</p>
+<p>Statistical analysis revealed that the only variable significantly affecting wine satisfaction scores is the interaction effect of price and temperature. Cheap wines are shown to be best served chilled while expensive wines are best served room temperature. The cooler serving temperatures of wines can help hide flaws, such as an imbalance in tannin, acidity, alcohol, body. This imbalance may be more pronounced in cheaper wines, which often have less strict wine-making requirements. Of course, this idea would require follow-up experiments to test.</p>
+<p>Furthermore, we must keep in mind the Effect Heredity Principle, which states that in order for an interaction to be significant, at least one of its parent factors must be significant. Here, neither the main effects of price nor temperature were found to be significant. By this principle, we cannot confidently arrive at the conclusion that the interaction effect of price and temperature significantly affect wine satisfaction. The significance of this interaction effect can potentially be due to noise in our data. A confirmatory experiment should be done to retest these factors.</p>
+<p>This current experiment can also serve as a screening experiment, in which the factors of type, price, and temperature can be ruled out and new factors (e.g., testing boxed, bottled, and canned wines) can be tested in subsequent experiments to further deepen our understanding of consumer wine preferences. Alternatively, expanding the range of levels for temperature, price, or wine type (e.g., introducing sparkling or dessert wines) could provide a broader understanding of consumer preferences.</p>
+<p>Despite its limitations, this experiment underscores the importance of sensory and contextual factors in shaping wine satisfaction. By challenging traditional norms and exploring alternative presentations, the findings contribute to a growing body of knowledge that can inform serving practices, marketing strategies, and consumer education in the wine industry.</p>
+</section>
+<section id="supplementary-figures" class="level3">
+<h3 class="anchored" data-anchor-id="supplementary-figures">Supplementary Figures</h3>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="img/wine_proj/wine_main_effects.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption class="figure-caption">Main Effects Plots</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="img/wine_proj/wine_typeprice.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption class="figure-caption">Interaction Plot of Type and Price</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="img/wine_proj/wine_typetemp.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption class="figure-caption">Interaction Plot of Type and Temperature</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="img/wine_proj/wine_restester.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption class="figure-caption">Residual Analysis: Residuals vs.&nbsp;Tester/Block</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
