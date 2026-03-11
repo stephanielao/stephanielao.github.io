@@ -1,0 +1,107 @@
+---
+title: "Skills"
+---
+
+## Programming Languages
+
+-   R
+
+-   Python
+
+-   SQL
+
+-   C
+
+-   Java
+
+## Visualization Tools/Database Management/Other
+
+-   Power BI
+
+-   Tableau
+
+-   AWS S3, SageMaker, Athena
+
+-   Snowflake
+
+-   MySQL
+
+-   Databricks
+
+-   Git
+
+-   Excel
+
+-   TeX
+
+-   Alteryx
+
+-   UiPath
+
+-   Adobe Analytics
+
+## Machine Learning Models
+
+-   regression analysis (simple/multivariate linear regression, polynomial regression, logistic regression, ridge/lasso regression, kernel regression, generalized additive models)
+
+-   tree-based models (decision trees, random forests, gradient boosting)
+
+-   clustering (k-means clustering)
+
+-   support vector machines
+
+-   k-nearest neighbors
+
+-   artificial neural networks (FNNs, CNNs, RNNs, GANs)
+
+-   transformers
+
+## Statistics/Data Science
+
+-   data pre-processing
+
+-   data visualization
+
+-   data management
+
+-   principal component analysis
+
+-   probability distributions
+
+-   multivariate analysis
+
+-   experimental design
+
+-   survey design
+
+-   hypothesis testing
+
+-   parametric and non-parametric tests
+
+-   resampling
+
+-   time-series analysis
+
+-   stochastic modeling
+
+-   natural language processing (sentiment analysis, topic modeling)
+
+-   kernel density estimation
+
+## Mathematics
+
+-   calculus
+
+-   discrete mathematics
+
+-   linear algebra
+
+-   abstract algebra
+
+-   differential equations
+
+-   probability theory
+
+-   real analysis
+
+-   complex analysis

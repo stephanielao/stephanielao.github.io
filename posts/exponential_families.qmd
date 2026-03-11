@@ -1,0 +1,316 @@
+---
+title: "Exponential Families"
+author: "Stephanie Lao"
+date: "05/05/2025"
+image: img/exponential_fam.jpg
+categories:
+  - statistics
+---
+
+### Introduction
+
+The exponential family is a mathematically convenient set of distributions, including the normal, Poisson, exponential, and gamma distributions as special cases. Outside of its wide use in classical statistical theory, its importance also reaches machine learning, such as in generalized linear models (GLMs).
+
+Expressing different probability density functions (pdf) or probability mass functions (pmf) in the form of an exponential family gives a convenient way to find the mean and variance of a random variable. We will give a brief introduction to the exponential family by providing a theorem that gives the mean and variance of a random variable belonging to an exponential family in terms of first and second derivatives, and include a two-part proof of this theorem. We will also give working examples to illustrate the theorem using the Poisson distribution and the binomial distribution with a fixed number of trials.
+
+**Definition**: An exponential family is a family of distributions whose pdf or pmf can be expressed in the form
+
+\begin{equation}
+    f(x|\theta) = h(x) c(\theta) \exp{ \left ( \sum_{i=1}^k w_i (\theta) t_i (x) \right )}
+\end{equation}
+
+where $h(x)$ and $t_i(x)$ do not depend on $\theta$ and $c(\theta)$ does not depend on $x$.
+
+The following theorem gives the mean and variance of a random variable with a pdf or pmf that can be expressed in the form of an exponential family.
+
+**Theorem 1**: Suppose a random variable $X$ has a pdf or pmf that can be expressed in the form of an exponential family. Then,
+
+\begin{equation}
+\textrm{(a)} \  E \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) = - \frac{\partial}{\partial \theta_j} \ln c(\theta)
+\end{equation}
+
+and
+
+\begin{equation}
+\textrm{(b)} \  \textrm{var} \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) = - \frac{\partial^2}{\partial \theta_j^2} \ln c(\theta) - E \left ( \sum_{i=1}^k \frac{\partial^2 w_i (\theta)}{\partial \theta_j^2} t_i(x) \right )
+\end{equation}
+
+### Proof of Theorem 1(a)
+
+To prove part (a) of Theorem 1, we start by using the knowledge that the area under the pdf curve is 1 and the definition of exponential families to see that
+
+\begin{equation*}
+\begin{aligned}
+    \int_x f(x|\theta) dx &= 1 \\
+    \int_x h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx &= 1 \\
+\end{aligned}
+\end{equation*}
+
+We differentiate both sides of the above equation with respect to $\theta_j$ to get
+
+\begin{equation*}
+\begin{aligned}
+    &\int_x h(x) \frac{\partial c(\theta)}{\partial \theta_j} \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\int_x h(x) c(\theta) \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx = 0
+\end{aligned}
+\end{equation*}
+
+We then multiply the first integral by $\frac{c(\theta)}{c(\theta)}$ to get
+
+\begin{equation*}
+\begin{aligned}
+    &\int_x h(x) \frac{\partial c(\theta)}{\partial \theta_j} \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) \frac{c(\theta)}{c(\theta)} dx \\
+    + &\int_x h(x) c(\theta) \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx = 0
+\end{aligned}
+\end{equation*}
+
+Using the knowledge that $\frac{\partial \ln c(\theta)}{\partial \theta_j} = \frac{\partial c(\theta)}{\partial \theta_j} \frac{1}{c(\theta)}$, see that
+
+\begin{equation*}
+\begin{aligned}
+    &\int_x h(x) c(\theta) \frac{\partial \ln c(\theta)}{\partial \theta_j} \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    + &\int_x h(x) c(\theta) \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx = 0
+\end{aligned}
+\end{equation*}
+
+After rearranging, we get
+
+\begin{equation*}
+\begin{aligned}
+    \int_x  \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx &= \\
+    - \frac{\partial \ln c(\theta)}{\partial \theta_j} \int_x h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+\end{aligned}
+\end{equation*}
+
+Finally, see that this is equivalent to
+
+\begin{equation*}
+\begin{aligned}
+    E \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) = - \frac{\partial}{\partial \theta_j} \ln c(\theta)
+\end{aligned}
+\end{equation*}
+
+\qed
+
+### Proof of Theorem 1(b)
+
+To prove part (b) of Theorem 1, we differentiate a second time. From part (a) we found that
+
+\begin{equation*}
+\begin{aligned}
+    &\int_x  \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\frac{\partial \ln c(\theta)}{\partial \theta_j} \int_x h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    &= 0\\
+\end{aligned}
+\end{equation*}
+
+We differentiate both sides of the above equation with respect to $\theta_j$ to get
+
+\begin{equation*}
+\begin{aligned}
+    &\int_x  \sum_{i=1}^k \left ( \frac{\partial^2 w_i(\theta)}{\partial \theta_j^2} t_i (x) \right ) h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\int_x  \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) h(x) \frac{\partial c(\theta)}{\partial \theta_j} \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\int_x  \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) h(x) c(\theta) \sum_{i=1}^k \left( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i(x) \right ) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\frac{\partial^2 \ln c(\theta)}{\partial \theta_j^2} \int_x h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    + & \frac{\partial \ln c(\theta)}{\partial \theta_j} \int_x h(x) \frac{\partial c(\theta)}{\partial \theta_j} \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    + & \frac{\partial \ln c(\theta)}{\partial \theta_j} \int_x h(x) c(\theta) \sum_{i=1}^k \left( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i(x) \right ) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    &= 0\\
+\end{aligned}
+\end{equation*}
+
+We then multiply the second and fifth terms by $\frac{c(\theta)}{c(\theta)}$ and use the knowledge that $\frac{\partial \ln c(\theta)}{\partial \theta_j} = \frac{\partial c(\theta)}{\partial \theta_j} \frac{1}{c(\theta)}$ to get
+
+\begin{equation*}
+\begin{aligned}
+    &\int_x  \sum_{i=1}^k \left ( \frac{\partial^2 w_i(\theta)}{\partial \theta_j^2} t_i (x) \right ) h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\int_x  \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) h(x) c(\theta) \frac{\partial \ln c (\theta)}{\partial \theta_j}\exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\int_x  \left ( \sum_{i=1}^k \left ( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i (x) \right ) \right )^2 h(x) c(\theta)  \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right ) dx \\
+    + &\frac{\partial^2 \ln c(\theta)}{\partial \theta_j^2} \int_x h(x) c(\theta) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    + & \frac{\partial \ln c(\theta)}{\partial \theta_j} \int_x h(x) c(\theta) \frac{\partial \ln c(\theta)}{\partial \theta_j} \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    + & \frac{\partial \ln c(\theta)}{\partial \theta_j} \int_x h(x) c(\theta) \sum_{i=1}^k \left( \frac{\partial w_i(\theta)}{\partial \theta_j} t_i(x) \right ) \exp \left ( \sum_{i=1}^k w_i(\theta) t_i(x) \right )  dx \\
+    &= 0\\
+\end{aligned}
+\end{equation*}
+
+After simplifying and rearranging we get
+
+\begin{equation*}
+\begin{aligned}
+    &E \left (  \sum_{i=1}^k \frac{\partial^2 w_i(\theta)}{\partial \theta_j^2} t_i (x) \right ) 
+    + \frac{\partial \ln c(\theta)}{\partial \theta_j} E \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right )
+    + E \left [ \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right )^2 \right ]\\
+    + &\frac{\partial^2 \ln c(\theta)}{\partial \theta_j^2}
+    + \left (\frac{\partial \ln c(\theta)}{\partial \theta_j} \right)^2
+    + \frac{\partial \ln c(\theta)}{\partial \theta_j} E \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) 
+    = 0\\
+\end{aligned}
+\end{equation*}
+
+Using results from part (a) and simplifying, see that this is equivalent to
+
+\begin{equation*}
+    E \left (  \sum_{i=1}^k \frac{\partial^2 w_i(\theta)}{\partial \theta_j^2} t_i (x) \right ) 
+    - \left ( \frac{\partial \ln c(\theta)}{\partial \theta_j} \right ) ^2
+    + E \left [ \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right )^2 \right ]
+    + \frac{\partial^2 \ln c(\theta)}{\partial \theta_j^2}
+    = 0\\
+\end{equation*}
+
+We know that $\textrm{var}(Q) = E(Q^2) - (EQ)^2$ for a random variable $Q$. Thus we get
+
+\begin{equation*}
+    \textrm{var} \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) = - \frac{\partial^2}{\partial \theta_j^2} \ln c(\theta) - E \left ( \sum_{i=1}^k \frac{\partial^2 w_i (\theta)}{\partial \theta_j^2} t_i(x) \right )
+\end{equation*}
+
+\qed
+
+### Examples
+
+In this section, we will work through two examples to illustrate how to determine if a pdf or pmf of a random variable can be expressed as an exponential family. We then use the above theorem to find the mean and variance.
+
+**Example 1**: Let $X \sim \textrm{Poisson} (\lambda)$. We can use the theorem to show that $E(X) = \lambda$ and $\textrm{var}(X) = \lambda$.
+
+The pmf of the Poisson distribution is given by
+
+\begin{equation*}
+    p(x) = \frac{\lambda^x e^{-\lambda}}{x!}
+\end{equation*}
+
+where $x = 0,1,...$ and $X$ represents the number of events that occur in an interval of time.
+
+We can show that $p(x)$ can be expressed as an exponential family.
+
+\begin{equation*}
+\begin{aligned}
+    p(x) &= \frac{\lambda^x e^{-\lambda}}{x!} \\
+    &= \frac{1}{x!} e^{-\lambda} \lambda^x  \\
+    &= \frac{1}{x!} e^{-\lambda} e^{x \ln \lambda}  \\
+\end{aligned}
+\end{equation*}
+
+Therefore, we can conclude this pmf is an exponential family with
+
+$h(x) = \frac{1}{x!}, c(\lambda) = e^{-\lambda}, t_1(x) = x,$ and $w_1(\lambda) = \ln \lambda$.
+
+We can use part (a) of the theorem to find $E(X)$. See that
+
+\begin{equation*}
+\begin{aligned}
+    E \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) &= E \left ( \sum_{i=1}^k \frac{\partial \ln \lambda}{\partial \lambda} x \right ) \\
+    &= E \left ( \sum_{i=1}^k  \frac{x}{\lambda} \right ) \\
+    &= - \frac{\partial}{\partial \theta_j} \ln c(\theta) \\
+    &= - \frac{\partial}{\partial \lambda} \ln (e^{-\lambda}) \\
+    &= - \frac{\partial}{\partial \lambda} (-\lambda) \\
+    &= 1 \\
+\end{aligned}
+\end{equation*}
+
+Thus, we get
+
+\begin{equation*}
+\begin{aligned}
+        \frac{E(X)}{\lambda} &= 1 \\
+        E(X) &= \lambda
+\end{aligned}
+\end{equation*}
+
+We can use part (b) of the theorem to find $\textrm{var}(X)$. We have
+
+\begin{equation*}
+    \begin{aligned}
+        \textrm{var} \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) &= \textrm{var} \left ( \sum_{i=1}^k \frac{\partial \ln \lambda}{\partial \lambda} x \right ) \\
+        &= \textrm{var} \left ( \sum_{i=1}^k \frac{x}{\lambda} \right ) \\
+        &= - \frac{\partial^2}{\partial \theta_j^2} \ln c(\theta) - E \left ( \sum_{i=1}^k \frac{\partial^2 w_i (\theta)}{\partial \theta_j^2} t_i(x) \right ) \\
+        &= - \frac{\partial^2}{\partial \lambda^2} \ln (e^{-\lambda}) - E \left ( \sum_{i=1}^k \frac{\partial^2 \ln \lambda}{\partial \lambda^2} x \right ) \\
+        &= - \frac{\partial^2}{\partial \lambda^2} (-\lambda) - E \left ( \sum_{i=1}^k \frac{\partial^2 \ln \lambda}{\partial \lambda^2} x \right ) \\
+        &= 0 - E \left ( \sum_{i=1}^k \frac{-x}{\lambda^2}\right ) \\
+        &= \frac{1}{\lambda}
+    \end{aligned}
+\end{equation*}
+
+Thus, we get
+
+\begin{equation*}
+\begin{aligned}
+        \frac{1}{\lambda^2}\textrm{var}(X) &= \frac{1}{\lambda} \\
+        \textrm{var}(X) &= \lambda
+\end{aligned}
+\end{equation*}
+
+**Example 2**: Let $X \sim \textrm{b} (n,p)$ with $n$ fixed. We can use the theorem to show that $E(X) = np$ and $\textrm{var}(X) = np(1-p)$.
+
+The pmf of the binomial distribution is given by
+
+\begin{equation*}
+    p(x) = \begin{pmatrix} n \\ x\end{pmatrix} p^x (1-p)^{n-x}
+\end{equation*}
+
+where $x = 0,1,...,n$ and $X$ represents the number of successes among $n$ trials.
+
+We can show that $p(x)$ can be expressed as an exponential family.
+
+\begin{equation*}
+\begin{aligned}
+    p(x) &= \begin{pmatrix} n \\ x\end{pmatrix} p^x (1-p)^{n-x} \\
+    &= \begin{pmatrix} n \\ x\end{pmatrix} p^x (1-p)^n \frac{1}{(1-p)^{x}} \\
+    &= \begin{pmatrix} n \\ x\end{pmatrix} (1-p)^n \left ( \frac{p}{1-p} \right ) ^x \\
+    &= \begin{pmatrix} n \\ x\end{pmatrix} (1-p)^n e^{x \ln \left ( \frac{p}{1-p} \right )} \\
+\end{aligned}
+\end{equation*}
+
+Therefore, we can conclude this pmf is an exponential family with
+
+$h(x) = \begin{pmatrix} n \\ x\end{pmatrix}, c(p) = (1-p)^n, t_1(x) = x,$ and $w_1(p) = \ln \left ( \frac{p}{1-p} \right )$.
+
+We can use part (a) of the theorem to find $E(X)$. See that
+
+\begin{equation*}
+\begin{aligned}
+    E \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) &= E \left ( \sum_{i=1}^k \frac{\partial}{\partial p} \left ( \ln \frac{p}{1-p} \right ) x \right ) \\
+    &= E \left ( \sum_{i=1}^k  \frac{x}{p-p^2} \right ) \\
+    &= - \frac{\partial}{\partial \theta_j} \ln c(\theta) \\
+    &= - \frac{\partial}{\partial p} \ln (1-p)^n \\
+    &= \frac{n}{1-p} \\
+\end{aligned}
+\end{equation*}
+
+Thus, we get
+
+\begin{equation*}
+\begin{aligned}
+        \frac{E(X)}{p - p^2} &= \frac{n}{1-p} \\
+        E(X) &= np
+\end{aligned}
+\end{equation*}
+
+We can use part (b) of the theorem to find $\textrm{var}(X)$. We have
+
+\begin{equation*}
+    \begin{aligned}
+        \textrm{var} \left ( \sum_{i=1}^k \frac{\partial w_i (\theta)}{\partial \theta_j} t_i(x) \right ) &= \textrm{var} \left ( \sum_{i=1}^k \frac{\partial }{\partial p}  \left ( \ln \frac{p}{1-p} \right ) x \right ) \\
+        &= \textrm{var} \left ( \sum_{i=1}^k \frac{x}{p-p^2} \right ) \\
+        &= - \frac{\partial^2}{\partial \theta_j^2} \ln c(\theta) - E \left ( \sum_{i=1}^k \frac{\partial^2 w_i (\theta)}{\partial \theta_j^2} t_i(x) \right ) \\
+        &= - \frac{\partial^2}{\partial p^2} \ln (1-p)^n - E \left ( \sum_{i=1}^k \frac{\partial^2}{\partial p^2} \left ( \ln \frac{p}{1-p} \right ) x \right ) \\
+        &= \frac{n}{(1-p)^2} - E \left ( \sum_{i=1}^k \frac{2p-1 (x)}{(p-p^2)^2}\right ) \\
+        &= \frac{n}{(1-p)^2} - np \left ( \frac{2p-1}{(p-p^2)^2} \right ) \\
+        &= \frac{np^2 - 2np^2 + np}{(p-p^2)^2} \\
+        &= \frac{np(1-p)}{(p-p^2)^2} \\
+    \end{aligned}
+\end{equation*}
+
+Thus, we get
+
+\begin{equation*}
+\begin{aligned}
+        \frac{1}{(p-p^2)^2}\textrm{var}(X) &= \frac{np(1-p)}{(p-p^2)^2} \\
+        \textrm{var}(X) &= np(1-p)
+\end{aligned}
+\end{equation*}
+
+### Conclusion
+
+In summary, we defined an exponential family as a set of probability distributions whose pdfs and pmfs can be expressed in a certain form, making them especially convenient to work with. We introduced a theorem that gave the mean and variance of a random variable belonging to an exponential family in terms of first and second derivatives. We then gave a two-part proof of this theorem.
+
+We finally worked through two examples to illustrate the theorem using the Poisson distribution and the binomial distribution with a fixed number of trials. Note that the exponential family also includes other distributions such as the normal and gamma distributions, which can be illustrated in a similar fashion to the examples included here.
+
+
