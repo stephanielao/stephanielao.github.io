@@ -1,54 +1,5 @@
 [
   {
-    "objectID": "portfolio.html",
-    "href": "portfolio.html",
-    "title": "Portfolio",
-    "section": "",
-    "text": "Please check back for more posts! I am currently in the process of adding more projects that demonstrate both supervised and unsupervised learning."
-  },
-  {
-    "objectID": "portfolio.html#selected-projects",
-    "href": "portfolio.html#selected-projects",
-    "title": "Portfolio",
-    "section": "",
-    "text": "Please check back for more posts! I am currently in the process of adding more projects that demonstrate both supervised and unsupervised learning."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Stephanie J. Lao",
-    "section": "",
-    "text": "I attended graduate school at the University of California, Los Angeles where I obtained my master’s degree in applied statistics. Previously, I obtained my bachelor’s degree in mathematics and biochemistry with a minor in art from St. Edward’s University in Austin, Texas. There, I was awarded a Welch Foundation research scholarship and a presidential merit scholarship.\nI have worked as a decision scientist at an advertising agency, a data analyst in the financial services industry, and have conducted research in computational epidemiology as well as environmental data science.\nIn my free time, I enjoy playing tennis, working on my garden, trying new baking recipes, swimming, and of course spending time with my family and friends."
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Stephanie J. Lao",
-    "section": "",
-    "text": "I attended graduate school at the University of California, Los Angeles where I obtained my master’s degree in applied statistics. Previously, I obtained my bachelor’s degree in mathematics and biochemistry with a minor in art from St. Edward’s University in Austin, Texas. There, I was awarded a Welch Foundation research scholarship and a presidential merit scholarship.\nI have worked as a decision scientist at an advertising agency, a data analyst in the financial services industry, and have conducted research in computational epidemiology as well as environmental data science.\nIn my free time, I enjoy playing tennis, working on my garden, trying new baking recipes, swimming, and of course spending time with my family and friends."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Selected Papers",
-    "section": "",
-    "text": "View it on eScholarship\nView it on ProQuest\nMaster’s Thesis at University of California, Los Angeles\nAdvisor: Xiaowu Dai\nMathematical models used in epidemiology, such as compartmental models, have the power to reveal the risk of infectious disease outbreaks and can impact the course of action for public health interventions. Despite these models being inexact at capturing the complexities of real-world disease transmission, they are capable of providing meaningful insight into physical systems and can ultimately support decision-making. These models use input parameters that represent characteristics of the physical system of interest. However, the true values of these parameters are often unknown because they cannot be directly measured. Hence, statistical calibration, or the process of identifying the optimal values of these parameters to best fit the observed data, is utilized to improve predictions and reliability of the model.\nAlthough declared an eradicated disease in the United States in 2000, there has been recent attention on several measles outbreaks throughout the country, most notably an outbreak beginning in Gaines County, Texas at the start of 2025. Here, we employ a dynamic compartmental model, known as an SVEIR model, to study the transmission of measles. We perform four different statistical calibration methods on the SVEIR model using daily incidence data from the West Texas outbreak collected by the Texas Department of State Health Services. We report estimated parameter values and basic reproduction numbers for the model calibrated using different methods. We give a comparison of predictive root mean square errors of all calibration methods and find that the optimal prediction calibration method returned the lowest predictive error. This study highlights the differences in calibration methods, hopes to provide an improved understanding of the current state of the ongoing measles outbreak in West Texas, and underscores avenues for future analysis."
-  },
-  {
-    "objectID": "projects.html#statistical-calibration-of-a-compartmental-epidemic-model-with-applications-to-the-west-texas-measles-outbreak",
-    "href": "projects.html#statistical-calibration-of-a-compartmental-epidemic-model-with-applications-to-the-west-texas-measles-outbreak",
-    "title": "Selected Papers",
-    "section": "",
-    "text": "View it on eScholarship\nView it on ProQuest\nMaster’s Thesis at University of California, Los Angeles\nAdvisor: Xiaowu Dai\nMathematical models used in epidemiology, such as compartmental models, have the power to reveal the risk of infectious disease outbreaks and can impact the course of action for public health interventions. Despite these models being inexact at capturing the complexities of real-world disease transmission, they are capable of providing meaningful insight into physical systems and can ultimately support decision-making. These models use input parameters that represent characteristics of the physical system of interest. However, the true values of these parameters are often unknown because they cannot be directly measured. Hence, statistical calibration, or the process of identifying the optimal values of these parameters to best fit the observed data, is utilized to improve predictions and reliability of the model.\nAlthough declared an eradicated disease in the United States in 2000, there has been recent attention on several measles outbreaks throughout the country, most notably an outbreak beginning in Gaines County, Texas at the start of 2025. Here, we employ a dynamic compartmental model, known as an SVEIR model, to study the transmission of measles. We perform four different statistical calibration methods on the SVEIR model using daily incidence data from the West Texas outbreak collected by the Texas Department of State Health Services. We report estimated parameter values and basic reproduction numbers for the model calibrated using different methods. We give a comparison of predictive root mean square errors of all calibration methods and find that the optimal prediction calibration method returned the lowest predictive error. This study highlights the differences in calibration methods, hopes to provide an improved understanding of the current state of the ongoing measles outbreak in West Texas, and underscores avenues for future analysis."
-  },
-  {
-    "objectID": "projects.html#interpretable-predictive-modeling-of-factors-influencing-deep-sea-coral-growth-in-davidson-seamount",
-    "href": "projects.html#interpretable-predictive-modeling-of-factors-influencing-deep-sea-coral-growth-in-davidson-seamount",
-    "title": "Selected Papers",
-    "section": "Interpretable Predictive Modeling of Factors Influencing Deep Sea Coral Growth in Davidson Seamount",
-    "text": "Interpretable Predictive Modeling of Factors Influencing Deep Sea Coral Growth in Davidson Seamount\nUndergraduate Capstone at St. Edward’s University\nAdvisor: Paul Savala\nAlthough the largest ecosystem on Earth, the deep ocean is also the least explored and understood. Hence, we are still in need of properly integrated biodiversity studies to unlock the patterns controlling species diversity in cold-water coral habitats. This study is specific to Davidson Seamount, a volcano located about 80 kilometers off the central California coast in the Monterey Bay National Marine Sanctuary. Predictive modeling has only recently been developed and applied in the marine environment due to the remoteness and limited accessibility of this environment. The objectives of this study are to develop and validate interpretable models to predict the occurrence of deep sea species of coral and sponges in Davidson Seamount.\nFor this study we utilize a subset tailored to Davidson Seamount of coral records from the Deep-Sea Coral Research and Technology Program of the National Oceanic and Atmospheric Administration (NOAA). The dataset contains information about deep sea corals and sponges collected by NOAA and their partners and is specifically tailored to the occurrences of azooxanthellates. Additionally, we utilized hydrographic records obtained from California Cooperative Oceanic Fisheries Investigations (CalCOFI). CalCOFI hydrographic data consists of the physical seawater properties measured over a 69 year time-series. The dataset contains seawater measurements from bottle sample depths. Our precise implementation takes the form of a glass-box explainable boosting machine, which are a special form of gradient boosted decision trees. Our results show that the most important factors influencing coral growth given the data include depth, temperature, salinity, dynamic height, and potential density. Our model reveals the most favorable conditions involving these factors for the occurrence of different coral in Davidson Seamount."
-  },
-  {
     "objectID": "skills.html",
     "href": "skills.html",
     "title": "Skills",
@@ -89,5 +40,40 @@
     "title": "Skills",
     "section": "Mathematics",
     "text": "Mathematics\n\ncalculus\ndiscrete mathematics\nlinear algebra\nabstract algebra\ndifferential equations\nprobability theory\nreal analysis\ncomplex analysis"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Selected Papers",
+    "section": "",
+    "text": "View it on eScholarship\nView it on ProQuest\nMaster’s Thesis at University of California, Los Angeles\nAdvisor: Xiaowu Dai\nMathematical models used in epidemiology, such as compartmental models, have the power to reveal the risk of infectious disease outbreaks and can impact the course of action for public health interventions. Despite these models being inexact at capturing the complexities of real-world disease transmission, they are capable of providing meaningful insight into physical systems and can ultimately support decision-making. These models use input parameters that represent characteristics of the physical system of interest. However, the true values of these parameters are often unknown because they cannot be directly measured. Hence, statistical calibration, or the process of identifying the optimal values of these parameters to best fit the observed data, is utilized to improve predictions and reliability of the model.\nAlthough declared an eradicated disease in the United States in 2000, there has been recent attention on several measles outbreaks throughout the country, most notably an outbreak beginning in Gaines County, Texas at the start of 2025. Here, we employ a dynamic compartmental model, known as an SVEIR model, to study the transmission of measles. We perform four different statistical calibration methods on the SVEIR model using daily incidence data from the West Texas outbreak collected by the Texas Department of State Health Services. We report estimated parameter values and basic reproduction numbers for the model calibrated using different methods. We give a comparison of predictive root mean square errors of all calibration methods and find that the optimal prediction calibration method returned the lowest predictive error. This study highlights the differences in calibration methods, hopes to provide an improved understanding of the current state of the ongoing measles outbreak in West Texas, and underscores avenues for future analysis."
+  },
+  {
+    "objectID": "projects.html#statistical-calibration-of-a-compartmental-epidemic-model-with-applications-to-the-west-texas-measles-outbreak",
+    "href": "projects.html#statistical-calibration-of-a-compartmental-epidemic-model-with-applications-to-the-west-texas-measles-outbreak",
+    "title": "Selected Papers",
+    "section": "",
+    "text": "View it on eScholarship\nView it on ProQuest\nMaster’s Thesis at University of California, Los Angeles\nAdvisor: Xiaowu Dai\nMathematical models used in epidemiology, such as compartmental models, have the power to reveal the risk of infectious disease outbreaks and can impact the course of action for public health interventions. Despite these models being inexact at capturing the complexities of real-world disease transmission, they are capable of providing meaningful insight into physical systems and can ultimately support decision-making. These models use input parameters that represent characteristics of the physical system of interest. However, the true values of these parameters are often unknown because they cannot be directly measured. Hence, statistical calibration, or the process of identifying the optimal values of these parameters to best fit the observed data, is utilized to improve predictions and reliability of the model.\nAlthough declared an eradicated disease in the United States in 2000, there has been recent attention on several measles outbreaks throughout the country, most notably an outbreak beginning in Gaines County, Texas at the start of 2025. Here, we employ a dynamic compartmental model, known as an SVEIR model, to study the transmission of measles. We perform four different statistical calibration methods on the SVEIR model using daily incidence data from the West Texas outbreak collected by the Texas Department of State Health Services. We report estimated parameter values and basic reproduction numbers for the model calibrated using different methods. We give a comparison of predictive root mean square errors of all calibration methods and find that the optimal prediction calibration method returned the lowest predictive error. This study highlights the differences in calibration methods, hopes to provide an improved understanding of the current state of the ongoing measles outbreak in West Texas, and underscores avenues for future analysis."
+  },
+  {
+    "objectID": "projects.html#interpretable-predictive-modeling-of-factors-influencing-deep-sea-coral-growth-in-davidson-seamount",
+    "href": "projects.html#interpretable-predictive-modeling-of-factors-influencing-deep-sea-coral-growth-in-davidson-seamount",
+    "title": "Selected Papers",
+    "section": "Interpretable Predictive Modeling of Factors Influencing Deep Sea Coral Growth in Davidson Seamount",
+    "text": "Interpretable Predictive Modeling of Factors Influencing Deep Sea Coral Growth in Davidson Seamount\nUndergraduate Capstone at St. Edward’s University\nAdvisor: Paul Savala\nAlthough the largest ecosystem on Earth, the deep ocean is also the least explored and understood. Hence, we are still in need of properly integrated biodiversity studies to unlock the patterns controlling species diversity in cold-water coral habitats. This study is specific to Davidson Seamount, a volcano located about 80 kilometers off the central California coast in the Monterey Bay National Marine Sanctuary. Predictive modeling has only recently been developed and applied in the marine environment due to the remoteness and limited accessibility of this environment. The objectives of this study are to develop and validate interpretable models to predict the occurrence of deep sea species of coral and sponges in Davidson Seamount.\nFor this study we utilize a subset tailored to Davidson Seamount of coral records from the Deep-Sea Coral Research and Technology Program of the National Oceanic and Atmospheric Administration (NOAA). The dataset contains information about deep sea corals and sponges collected by NOAA and their partners and is specifically tailored to the occurrences of azooxanthellates. Additionally, we utilized hydrographic records obtained from California Cooperative Oceanic Fisheries Investigations (CalCOFI). CalCOFI hydrographic data consists of the physical seawater properties measured over a 69 year time-series. The dataset contains seawater measurements from bottle sample depths. Our precise implementation takes the form of a glass-box explainable boosting machine, which are a special form of gradient boosted decision trees. Our results show that the most important factors influencing coral growth given the data include depth, temperature, salinity, dynamic height, and potential density. Our model reveals the most favorable conditions involving these factors for the occurrence of different coral in Davidson Seamount."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Stephanie J. Lao",
+    "section": "",
+    "text": "I attended graduate school at the University of California, Los Angeles where I obtained my master’s degree in applied statistics. Previously, I obtained my bachelor’s degree in mathematics and biochemistry with a minor in art from St. Edward’s University in Austin, Texas. There, I was awarded a Welch Foundation research scholarship and a presidential merit scholarship.\nI have worked as a decision scientist at an advertising agency, a data analyst in the financial services industry, and have conducted research in computational epidemiology as well as environmental data science.\nIn my free time, I enjoy playing tennis, working on my garden, trying new baking recipes, swimming, and of course spending time with my family and friends."
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Stephanie J. Lao",
+    "section": "",
+    "text": "I attended graduate school at the University of California, Los Angeles where I obtained my master’s degree in applied statistics. Previously, I obtained my bachelor’s degree in mathematics and biochemistry with a minor in art from St. Edward’s University in Austin, Texas. There, I was awarded a Welch Foundation research scholarship and a presidential merit scholarship.\nI have worked as a decision scientist at an advertising agency, a data analyst in the financial services industry, and have conducted research in computational epidemiology as well as environmental data science.\nIn my free time, I enjoy playing tennis, working on my garden, trying new baking recipes, swimming, and of course spending time with my family and friends."
   }
 ]
