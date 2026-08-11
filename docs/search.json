@@ -70,11 +70,11 @@
     "text": "R\nPython\nSQL\nC\nJava"
   },
   {
-    "objectID": "skills.html#visualization-toolsdatabase-managementother-tools",
-    "href": "skills.html#visualization-toolsdatabase-managementother-tools",
+    "objectID": "skills.html#toolsmisc.",
+    "href": "skills.html#toolsmisc.",
     "title": "Skills",
-    "section": "Visualization Tools/Database Management/Other Tools",
-    "text": "Visualization Tools/Database Management/Other Tools\n\nAWS S3, SageMaker, Athena\nGit\nDatabricks\nMLflow\nSnowflake\nPower BI\nTableau\nExcel\nTeX\nAlteryx\nUiPath\nAdobe Analytics"
+    "section": "Tools/Misc.",
+    "text": "Tools/Misc.\n\nAWS S3, SageMaker, Athena\nGit\nDatabricks\nMLflow\nSnowflake\nPower BI\nTableau\nExcel\nTeX\nAlteryx\nUiPath\nAdobe Analytics"
   },
   {
     "objectID": "skills.html#machine-learning-models",
